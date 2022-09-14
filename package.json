@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/RicardoEBarros/primeiro_projeto_node/issues"
   },
-  "homepage": "https://github.com/RicardoEBarros/primeiro_projeto_node#readme"
+  "homepage": "https://github.com/RicardoEBarros/primeiro_projeto_node#readme",
+  "devDependencies": {
+    "express": "^4.18.1"
+  }
 }
