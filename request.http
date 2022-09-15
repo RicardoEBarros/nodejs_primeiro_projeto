@@ -2,8 +2,8 @@ POST http://localhost:4002/products
 content-type: application/json
 
 {
-    "name": "Caderno 96 Folhas",
-    "price": 15
+    "name": "Fichário",
+    "price": 30
 }
 
 ###
@@ -22,3 +22,7 @@ content-type: application/json
     "name": "Caneta Esferográfica Preta",
     "price": 5
 }
+
+###
+
+DELETE http://localhost:4002/products/45d26b47-b1bd-4a71-8d72-e689691e8200
