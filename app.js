@@ -1,8 +1,17 @@
 const express = require('express')
+const fs = require('fs')
 const { randomUUID } = require('crypto')
 
 const app      = express()
-const products = []
+let products = []
+
+fs.readFile('products.json', 'utf-8', (err, data) => {
+    if (err) {
+        console.log(err)
+    } else {
+        products = JSON.parse(data)
+    }
+})
 
 /* define a middleware */
 app.use(express.urlencoded({ extended: true }))
@@ -20,6 +29,8 @@ app.post('/products', (request, response) => {
     }
 
     products.push(product)
+    createdProductFile(products)
+    return response.json(product)
 
 })
 
@@ -44,6 +55,8 @@ app.put('/products/:id', (request, response) => {
         price
     }
 
+    createdProductFile(products)
+
     return response.json({ message: "Produto alterado com sucesso" })
 })
 
@@ -51,7 +64,18 @@ app.delete('/products/:id', (request, response) => {
     const { id } = request.params
     const productIndex = products.findIndex(product => product.id === id)
     products.splice(productIndex, 1)
+    createdProductFile(products)
     response.json({ message: "Produto removido com sucesso!!" })
 })
+
+function createdProductFile(products) {
+    fs.writeFile('products.json', JSON.stringify(products), (err) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('Produto inserido')
+        }
+    })
+}
 
 app.listen(4002, () => console.log('Servidor está rodando na porta 4002'))
