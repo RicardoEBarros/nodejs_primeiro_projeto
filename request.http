@@ -15,14 +15,14 @@ GET http://localhost:4002/products
 GET http://localhost:4002/products/7496a9aa-4b5a-4ee5-8b0d-eae9e47f4621
 
 ###
-PUT http://localhost:4002/products/ad847cbc-bc32-434a-af57-75d0a5318e45
+PUT http://localhost:4002/products/d3e93bea-7655-4bde-99c6-e2b9af513a9a
 content-type: application/json
 
 {
-    "name": "Caderno 96 Folhas Capa Azul",
-    "price": 10
+    "name": "Borracha",
+    "price": 5
 }
 
 ###
 
-DELETE http://localhost:4002/products/8ebc3e26-d67e-4a91-825d-610f16ffc73e
+DELETE http://localhost:4002/products/6a67af47-62e7-4b66-ad2d-047705f83cae

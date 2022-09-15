@@ -29,7 +29,7 @@ app.post('/products', (request, response) => {
     }
 
     products.push(product)
-    createdProductFile(products)
+    productFile(products)
     return response.json(product)
 
 })
@@ -55,7 +55,7 @@ app.put('/products/:id', (request, response) => {
         price
     }
 
-    createdProductFile(products)
+    productFile(products)
 
     return response.json({ message: "Produto alterado com sucesso" })
 })
@@ -64,11 +64,11 @@ app.delete('/products/:id', (request, response) => {
     const { id } = request.params
     const productIndex = products.findIndex(product => product.id === id)
     products.splice(productIndex, 1)
-    createdProductFile(products)
+    productFile(products)
     response.json({ message: "Produto removido com sucesso!!" })
 })
 
-function createdProductFile(products) {
+function productFile(products) {
     fs.writeFile('products.json', JSON.stringify(products), (err) => {
         if (err) {
             console.log(err)
