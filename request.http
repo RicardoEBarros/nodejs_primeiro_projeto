@@ -3,7 +3,7 @@ content-type: application/json
 
 {
     "name": "Caderno 96 Folhas",
-    "price": 3
+    "price": 15
 }
 
 ###
@@ -13,3 +13,12 @@ GET http://localhost:4002/products
 ###
 
 GET http://localhost:4002/products/7496a9aa-4b5a-4ee5-8b0d-eae9e47f4621
+
+###
+PUT http://localhost:4002/products/77b93ed1-e9c7-494d-9c87-5edd1bd61745
+content-type: application/json
+
+{
+    "name": "Caneta Esferográfica Preta",
+    "price": 5
+}
